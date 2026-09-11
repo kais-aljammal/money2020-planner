@@ -582,25 +582,73 @@ body {
     <div class="score-item" style="grid-column: span 2;"><div class="num" id="sc-nextsteps">0</div><div class="slabel">Agreed Next Steps (Target: 4-6)</div></div>
   </div>
 
-  <div class="section-title">Pre-Event QA Gates</div>
+  <div class="section-title">Before the event</div>
   <div class="card">
     <div class="card-detail" style="max-height:none">
       <div class="card-detail-inner" style="border-top:none;padding-top:12px">
-        <div class="check-item" data-check="qa1" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="be1" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Positioning: Clear in 20 seconds</div>
+          <div class="check-text">Decide <strong>one simple sentence</strong> to explain Interviewlary.</div>
         </div>
-        <div class="check-item" data-check="qa2" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="be2" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Demo: 3 successful rehearsals < 60s</div>
+          <div class="check-text">Decide what is <strong>working now / still improving / not ready</strong>.</div>
         </div>
-        <div class="check-item" data-check="qa3" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="be3" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Language: Arabic voice passes QA tests</div>
+          <div class="check-text">Prepare a <strong>45–60 sec demo</strong>.</div>
         </div>
-        <div class="check-item" data-check="qa4" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="be4" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Handoff: QR/link works on another phone</div>
+          <div class="check-text">Prepare a <strong>backup demo/video</strong> in case internet or product fails.</div>
+        </div>
+        <div class="check-item" data-check="be5" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Test the <strong>QR code / website link</strong> on another phone.</div>
+        </div>
+        <div class="check-item" data-check="be6" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Prepare a <strong>demo account</strong> with fake user data.</div>
+        </div>
+        <div class="check-item" data-check="be7" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Test signup → interview → feedback → history.</div>
+        </div>
+        <div class="check-item" data-check="be8" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Test Arabic text.</div>
+        </div>
+        <div class="check-item" data-check="be9" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Only use Arabic voice if it works reliably.</div>
+        </div>
+        <div class="check-item" data-check="be10" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Check pricing/free limits so you don't say anything wrong.</div>
+        </div>
+        <div class="check-item" data-check="be11" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Prepare answers: Why us? ChatGPT? Arabic? Privacy? Pricing? V1?</div>
+        </div>
+        <div class="check-item" data-check="be12" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Find <strong>15–20 people</strong> you actually want to meet.</div>
+        </div>
+        <div class="check-item" data-check="be13" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">For each person, know: <strong>Why do I want to talk to them?</strong></div>
+        </div>
+        <div class="check-item" data-check="be14" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Decide roles (You: talk/close, Omar: demo/contact info).</div>
+        </div>
+        <div class="check-item" data-check="be15" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Both of you practice the demo <strong>3 times</strong>.</div>
+        </div>
+        <div class="check-item" data-check="be16" onclick="toggleCheck(this)">
+          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="check-text">Charge phones/laptops + bring power bank.</div>
         </div>
       </div>
     </div>

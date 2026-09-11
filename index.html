@@ -225,10 +225,10 @@ body {
   letter-spacing: 0.3px;
   flex-shrink: 0;
 }
-.tag-investor { background: rgba(48,209,88,0.15); color: var(--green); }
-.tag-advisor { background: rgba(191,90,242,0.15); color: var(--purple); }
+.tag-user { background: rgba(10,132,255,0.15); color: var(--accent); }
+.tag-dist { background: rgba(48,209,88,0.15); color: var(--green); }
 .tag-founder { background: rgba(255,159,10,0.15); color: var(--orange); }
-.tag-funding { background: rgba(10,132,255,0.15); color: var(--accent); }
+.tag-investor { background: rgba(191,90,242,0.15); color: var(--purple); }
 
 /* Pitch card */
 .pitch-card {
@@ -311,10 +311,10 @@ body {
 <!-- Header -->
 <div class="header">
   <h1>Money20/20 🚀</h1>
-  <div class="sub">Day 1 — Sep 14, 2026 · Riyadh RECC</div>
+  <div class="sub">Day 1 — Sep 14 · Product & Distribution Focus</div>
   <div class="progress-wrap">
     <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-    <div class="progress-label" id="progressLabel">0 / 10 completed</div>
+    <div class="progress-label" id="progressLabel">0 / 7 blocks completed</div>
   </div>
 </div>
 
@@ -337,15 +337,11 @@ body {
       <div class="card-detail-inner">
         <div class="detail-section">
           <div class="label">What to do</div>
-          <p>Collect badges + lanyards. Grab event map. Download the Money20/20 app.</p>
+          <p>Collect badges. Grab event map. Confirm phone internet connectivity.</p>
         </div>
         <div class="detail-section">
-          <div class="label">Ask staff</div>
-          <p>• "Is there a startup/founder lounge?"<br>• "Where are Hall 1 and Hall 2?"<br>• "Any investor speed-dating today?"</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Strategy</div>
-          <p>Split up — both collect badges, regroup at H1 entrance for Lucidya visit.</p>
+          <div class="label">QA Gate Check</div>
+          <p>Test the 45s demo on cellular. Ensure fallback screenshot/recording works.</p>
         </div>
       </div>
     </div>
@@ -356,7 +352,7 @@ body {
     <div class="card-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">11:15</div><div class="ampm">AM</div></div>
       <div class="card-info">
-        <div class="name">Lucidya Booth — AI Playbook</div>
+        <div class="name">Lucidya Booth — GTM Playbook</div>
         <div class="loc">📍 H1.B99 · Hall 1</div>
       </div>
       <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -365,23 +361,11 @@ body {
       <div class="card-detail-inner">
         <div class="detail-section">
           <div class="label">Why visit</div>
-          <p>AI-native CX platform, Arabic NLP, Saudi HQ. They're 3-5 years ahead of you on the same journey. Learn their fundraising playbook.</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">People to find</div>
-          <p>• Anand Shrivastava — Head of Product<br>• Tarik Shalby — GM of AI Agent<br>• Omar Turani — Account Executive</p>
+          <p>AI-native CX platform. Focus on learning their Go-To-Market and distribution strategy for enterprise/HR partnerships.</p>
         </div>
         <div class="qa-box">
-          <div class="qa-label">Opening Script</div>
-          <p>"Hi, I'm Kais. I'm building an AI interview trainer — like you, we're AI-native and focused on MENA. How did you approach raising capital as an AI startup?"</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Questions to ask</div>
-          <p>1. First milestone that got investor attention?<br>2. How did you position vs global AI companies?<br>3. What do MENA investors care most about?<br>4. Know any VCs in HR tech / talent?<br>5. Advice on scaling in MENA vs globally?</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Collect</div>
-          <p>✅ Business card / LinkedIn · ✅ Key learning · ✅ Warm intro if possible</p>
+          <div class="qa-label">Questions</div>
+          <p>1. How did you validate enterprise demand early on?<br>2. What accelerator/growth programs helped most?</p>
         </div>
       </div>
     </div>
@@ -392,7 +376,7 @@ body {
     <div class="card-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">12:15</div><div class="ampm">PM</div></div>
       <div class="card-info">
-        <div class="name">Lunch + Investor Spotting</div>
+        <div class="name">Lunch + Target Networking</div>
         <div class="loc">📍 Food Area / Networking Lounge</div>
       </div>
       <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -401,73 +385,17 @@ body {
       <div class="card-detail-inner">
         <div class="detail-section">
           <div class="label">Strategy</div>
-          <p>Kais: Scan for investor badges ("Investor", "VC", "Fund", "Capital", "GP"). Omar: Eat quickly, then join the hunt.</p>
+          <p>Look for recruiters, coaches, HR tech innovators, and other startup founders. Goal: product distribution.</p>
         </div>
         <div class="qa-box">
-          <div class="qa-label">Cold Approach Opener</div>
-          <p>"Hi, I'm Kais. I'm building an AI interview trainer targeting underserved founders in MENA. What sectors are you focused on?"</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Pitch variants</div>
-          <p>• VCs: "Looking for Seed + intros to HR platforms"<br>• Corporate: "Exploring partnerships to upskill talent"<br>• Government: "Aligned with Vision 2030 talent goals"</p>
+          <div class="qa-label">Cold Approach</div>
+          <p>"Hi, I'm Kais. We're building a tool to help candidates practice realistic interviews using AI. Do you handle hiring or talent development for your team?"</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 12:45 -->
-  <div class="card accent-green" data-id="capifly">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="time-badge"><div class="t">12:45</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">Capifly — Non-Dilutive Funding</div>
-        <div class="loc">📍 H2.P128 · Hall 2</div>
-      </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-    </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Why visit</div>
-          <p>Direct funding source — Sharia-compliant, non-dilutive growth capital. You keep 100% ownership.</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">People to find</div>
-          <p>• Dunya Bashiti — CEO (decision-maker)<br>• Ahmed Jaradat — CTO (evaluates tech)</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Questions</div>
-          <p>1. Minimum traction threshold?<br>2. How long is the decision process?<br>3. Do you fund pre-revenue tech startups?<br>4. How much capital per startup?</p>
-        </div>
-        <div class="qa-box">
-          <div class="qa-label">Your ask</div>
-          <p>"I'd love to apply for Capifly's funding. What's the next step? Could we set up a 15-min call this week?"</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title">Afternoon — Sessions</div>
-
-  <!-- 1:15 -->
-  <div class="card accent-blue" data-id="prep1">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="time-badge"><div class="t">1:15</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">Walk to Hall 1 + Session Prep</div>
-        <div class="loc">📍 Hall 1 — Front rows</div>
-      </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-    </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Tasks</div>
-          <p>• Kais: Review notes, prepare Q&A question<br>• Omar: Scout room, find speakers, grab front seats<br>• Sit where speakers can see you!</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="section-title">Afternoon</div>
 
   <!-- 2:00 -->
   <div class="card accent-red" data-id="session1">
@@ -475,27 +403,19 @@ body {
       <div class="time-badge"><div class="t">2:00</div><div class="ampm">PM</div></div>
       <div class="card-info">
         <div class="name">🎯 MFTA Saudi Fintech Growth</div>
-        <div class="loc">📍 Hall 1 · 90 min · Zain Umer</div>
+        <div class="loc">📍 Hall 1 · Zain Umer</div>
       </div>
       <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
     <div class="card-detail">
       <div class="card-detail-inner">
         <div class="detail-section">
-          <div class="label">Why attend</div>
-          <p>Saudi fintech ambitions for 2030 (525 companies, 18K jobs). Learn which sectors get capital: insurtech, regtech, wealthtech, AI solutions. Zain Umer is an investor + ecosystem moderator.</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Take notes on</div>
-          <p>• Any mention of AI + hiring/talent<br>• Problems with current solutions<br>• Investor appetites<br>• Regulatory signals</p>
+          <div class="label">Focus</div>
+          <p>Listen for problems regarding talent recruitment and hiring bottlenecks as the ecosystem scales.</p>
         </div>
         <div class="qa-box">
-          <div class="qa-label">Q&A Question — Kais asks</div>
-          <p>"As AI-first startups scale in Saudi Arabia, what's the biggest gap you see founders struggling with — is it talent recruitment, team evaluation, or something else? I'm building an AI tool to solve talent assessment faster."</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">After session — approach Zain Umer</div>
-          <p>"Zain, great session. I'm building an AI interview trainer to help Saudi startups scale faster. Do you think that's a gap in the ecosystem?"</p>
+          <div class="qa-label">Q&A Question</div>
+          <p>"As startups scale in Saudi Arabia, how much of a bottleneck is talent evaluation? We're building a tool to help candidates prep and companies assess faster."</p>
         </div>
       </div>
     </div>
@@ -506,62 +426,8 @@ body {
     <div class="card-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">3:30</div><div class="ampm">PM</div></div>
       <div class="card-info">
-        <div class="name">Mambu + Signzy Booths</div>
-        <div class="loc">📍 H2.D61 + H2.J52 · Hall 2</div>
-      </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-    </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Split strategy</div>
-          <p>• Kais → Mambu (H2.D61): "How did you get your first 10 customers at Series A?"<br>• Omar → Signzy (H2.J52): "How did you convince FIs to use your AI platform?"<br>• Regroup at 4:10 PM near Hall 1</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4:20 -->
-  <div class="card accent-red" data-id="session2">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="time-badge"><div class="t">4:20</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">🔥 Rewiring Capital — GOLDEN</div>
-        <div class="loc">📍 Hall 1 · 40 min · Investors + Judges</div>
-      </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-    </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">⭐ Most important session</div>
-          <p>Two pitch judges + two active investors. Topic: "How capital decisions shape who gets funded" — perfect for your pitch.</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Speakers</div>
-          <p>• <strong>Ihsan Jawad</strong> — GP, STV 🇸🇦 (YOUR #1 TARGET)<br>• <strong>Mareme Dieng</strong> — M&A Head, Axian Group (Pitch Judge)<br>• Nivesh Pather — Norrsken22<br>• Arth Malani — NorthStar Insights</p>
-        </div>
-        <div class="qa-box">
-          <div class="qa-label">Q&A — Kais asks this</div>
-          <p>"I'm an early-stage founder building an AI interview trainer for underserved job seekers and startup founders. When you evaluate founders like me with limited traction but a clear problem and strong team, what signals matter most — customer discovery, partnerships, or proof of concept?"</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">⚠️ After session — DO NOT LEAVE</div>
-          <p>Kais → approach Ihsan Jawad: "Hi Ihsan, I'm Kais, building an AI interview trainer. Saudi-based, raising Seed. Could we grab 10 min for coffee?"<br><br>Omar → approach Mareme Dieng: "Mareme, I'm Omar, co-founder of Interviewlary. Would you be open to a brief chat?"</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title">Evening</div>
-
-  <!-- 5:10 -->
-  <div class="card accent-purple" data-id="blitz">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="time-badge"><div class="t">5:10</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">Investor Networking Blitz</div>
-        <div class="loc">📍 Networking Lounge / Coffee Area</div>
+        <div class="name">Capifly + Signzy Booths</div>
+        <div class="loc">📍 H2.P128 + H2.J52 · Hall 2</div>
       </div>
       <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
@@ -569,31 +435,55 @@ body {
       <div class="card-detail-inner">
         <div class="detail-section">
           <div class="label">Strategy</div>
-          <p>Split up — cast a wide net. Target anyone with "Investor", "Fund", "VC", "Capital" on their badge. Aim for 5+ new investor cards.</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Also look for</div>
-          <p>• Omar Aloyoun (Techstars NYC)<br>• Mudasar Mustafa (Rebase AI)<br>• Hemang Thakrar (CapFlow AI)<br>• Waleed Al Balla (Sukna Ventures)</p>
+          <p>• Capifly: Ask "What signals do you look for regarding a founder's readiness and team quality?"<br>• Signzy: Ask how they established distribution partnerships with financial institutions.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 5:45 -->
-  <div class="card accent-blue" data-id="debrief">
+  <!-- 4:20 -->
+  <div class="card accent-purple" data-id="session2">
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="time-badge"><div class="t">5:45</div><div class="ampm">PM</div></div>
+      <div class="time-badge"><div class="t">4:20</div><div class="ampm">PM</div></div>
       <div class="card-info">
-        <div class="name">Evening Debrief & Follow-ups</div>
-        <div class="loc">📍 Venue Lobby / Quiet Corner</div>
+        <div class="name">🔥 Rewiring Capital</div>
+        <div class="loc">📍 Hall 1 · Ihsan Jawad, Mareme Dieng</div>
       </div>
       <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
     <div class="card-detail">
       <div class="card-detail-inner">
         <div class="detail-section">
-          <div class="label">Debrief together</div>
-          <p>1. List all investors met + contact info<br>2. Rank top 3 investors by interest<br>3. Note key learnings + pitch feedback<br>4. Plan follow-up emails for tonight</p>
+          <div class="label">Focus</div>
+          <p>Understand what investors see as "founder readiness" and talent evaluation limits.</p>
+        </div>
+        <div class="qa-box">
+          <div class="qa-label">Q&A Question</div>
+          <p>"When evaluating founders with early products, how heavily do you weigh their ability to attract and evaluate top talent?"</p>
+        </div>
+        <div class="detail-section">
+          <div class="label">Post-Session Ask</div>
+          <p>No fundraising ask! Say: "Can I send you our V1 product update next month?"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5:10 -->
+  <div class="card accent-blue" data-id="blitz">
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="time-badge"><div class="t">5:10</div><div class="ampm">PM</div></div>
+      <div class="card-info">
+        <div class="name">Evening Demo Blitz</div>
+        <div class="loc">📍 Networking Lounge</div>
+      </div>
+      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <div class="detail-section">
+          <div class="label">Strategy</div>
+          <p>Hit the quota of 6-8 total demonstrations today. Record context, interest, and agreed action for every contact.</p>
         </div>
       </div>
     </div>
@@ -603,78 +493,11 @@ body {
 
 <!-- People Page -->
 <div class="page" id="page-people">
-  <div class="section-title" style="margin-top:4px">🔴 Must Meet — Investors</div>
+  
+  <div class="section-title" style="margin-top:4px">🎯 Distribution & Users (Primary)</div>
+  <p style="font-size:13px; color:var(--text3); margin-bottom:12px">Search the event directory for HR Tech, Recruiters, and Career Coaches.</p>
 
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(48,209,88,0.15);color:#30d158">IJ</div>
-    <div class="person-info">
-      <div class="pname">Ihsan Jawad</div>
-      <div class="prole">General Partner · STV 🇸🇦</div>
-    </div>
-    <div class="person-tag tag-investor">Investor</div>
-  </div>
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(48,209,88,0.15);color:#30d158">MD</div>
-    <div class="person-info">
-      <div class="pname">Mareme Dieng</div>
-      <div class="prole">Head of M&A · Axian Group 🇦🇪</div>
-    </div>
-    <div class="person-tag tag-investor">Judge</div>
-  </div>
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(48,209,88,0.15);color:#30d158">WB</div>
-    <div class="person-info">
-      <div class="pname">Waleed Al Balla</div>
-      <div class="prole">Managing Partner · Sukna Ventures 🇸🇦</div>
-    </div>
-    <div class="person-tag tag-investor">Investor</div>
-  </div>
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(48,209,88,0.15);color:#30d158">NP</div>
-    <div class="person-info">
-      <div class="pname">Nivesh Pather</div>
-      <div class="prole">Investment Principal · Norrsken22</div>
-    </div>
-    <div class="person-tag tag-investor">Investor</div>
-  </div>
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(10,132,255,0.15);color:#0a84ff">DB</div>
-    <div class="person-info">
-      <div class="pname">Dunya Bashiti</div>
-      <div class="prole">CEO · Capifly</div>
-    </div>
-    <div class="person-tag tag-funding">Funding</div>
-  </div>
-
-  <div class="section-title">🟡 Advisors & Connectors</div>
-
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(191,90,242,0.15);color:#bf5af2">ZU</div>
-    <div class="person-info">
-      <div class="pname">Zain Umer</div>
-      <div class="prole">CEO · CFC MENA / MFTA</div>
-    </div>
-    <div class="person-tag tag-advisor">Advisor</div>
-  </div>
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(191,90,242,0.15);color:#bf5af2">OA</div>
-    <div class="person-info">
-      <div class="pname">Omar Aloyoun</div>
-      <div class="prole">Startups Adviser · Techstars NYC</div>
-    </div>
-    <div class="person-tag tag-advisor">Advisor</div>
-  </div>
-  <div class="person-card">
-    <div class="person-avatar" style="background:rgba(191,90,242,0.15);color:#bf5af2">JD</div>
-    <div class="person-info">
-      <div class="pname">Dr. Jonathan Doerr</div>
-      <div class="prole">SVP Venture Building · Disrupt</div>
-    </div>
-    <div class="person-tag tag-advisor">Advisor</div>
-  </div>
-
-  <div class="section-title">🟢 AI Founders — Learn From</div>
-
+  <div class="section-title">🟡 Founders & Advisors</div>
   <div class="person-card">
     <div class="person-avatar" style="background:rgba(255,159,10,0.15);color:#ff9f0a">AS</div>
     <div class="person-info">
@@ -684,167 +507,116 @@ body {
     <div class="person-tag tag-founder">Founder</div>
   </div>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(255,159,10,0.15);color:#ff9f0a">TS</div>
+    <div class="person-avatar" style="background:rgba(10,132,255,0.15);color:#0a84ff">ZU</div>
     <div class="person-info">
-      <div class="pname">Tarik Shalby</div>
-      <div class="prole">GM of AI Agent · Lucidya</div>
+      <div class="pname">Zain Umer</div>
+      <div class="prole">CEO · CFC MENA / MFTA</div>
     </div>
-    <div class="person-tag tag-founder">Founder</div>
+    <div class="person-tag tag-user">Community</div>
   </div>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(255,159,10,0.15);color:#ff9f0a">MM</div>
+    <div class="person-avatar" style="background:rgba(48,209,88,0.15);color:#30d158">OA</div>
     <div class="person-info">
-      <div class="pname">Mudasar Mustafa</div>
-      <div class="prole">CEO · Rebase AI</div>
+      <div class="pname">Omar Aloyoun</div>
+      <div class="prole">Startups Adviser · Techstars NYC</div>
     </div>
-    <div class="person-tag tag-founder">Founder</div>
+    <div class="person-tag tag-dist">Accelerator</div>
+  </div>
+
+  <div class="section-title">🟣 Investors (Secondary)</div>
+  <div class="person-card">
+    <div class="person-avatar" style="background:rgba(191,90,242,0.15);color:#bf5af2">IJ</div>
+    <div class="person-info">
+      <div class="pname">Ihsan Jawad</div>
+      <div class="prole">General Partner · STV 🇸🇦</div>
+    </div>
+    <div class="person-tag tag-investor">Investor</div>
   </div>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(255,159,10,0.15);color:#ff9f0a">HT</div>
+    <div class="person-avatar" style="background:rgba(191,90,242,0.15);color:#bf5af2">MD</div>
     <div class="person-info">
-      <div class="pname">Hemang Thakrar</div>
-      <div class="prole">CEO · CapFlow AI</div>
+      <div class="pname">Mareme Dieng</div>
+      <div class="prole">Head of M&A · Axian Group 🇦🇪</div>
     </div>
-    <div class="person-tag tag-founder">Founder</div>
+    <div class="person-tag tag-investor">Investor</div>
   </div>
 </div>
 
 <!-- Pitch Page -->
 <div class="page" id="page-pitch">
-  <div class="section-title" style="margin-top:4px">Your Elevator Pitch</div>
+  <div class="section-title" style="margin-top:4px">The Flow</div>
 
   <div class="pitch-card">
-    <div class="pitch-tag">⏱️ ~55 seconds</div>
-    <h3>Full Pitch</h3>
-    <p>"Hi, I'm Kais, and this is my co-founder Omar. We built <strong>Interviewlary</strong> — an AI-powered interview trainer that lets job seekers and founders practice realistic mock interviews by voice or text, in English and Arabic, with instant AI scoring and actionable feedback.<br><br>The problem is real: interview anxiety costs companies talent and wastes candidates' time. Traditional mock interviews are expensive and hard to schedule.<br><br>We're focused on MENA first, where there's a massive underserved market. We're bootstrapped, with a live product at <strong>interviewlary.com</strong>, raising a Seed round to scale regionally.<br><br>Are you interested in HR tech, AI, or education?"</p>
+    <div class="pitch-tag">Step 1: The Hook (15-20s)</div>
+    <p>"Hi, I'm Kais. We built Interviewlary—it gives candidates realistic mock interviews for specific roles, with instant feedback on their answers. Are you involved in hiring or coaching at your company?"</p>
   </div>
 
   <div class="pitch-card">
-    <div class="pitch-tag">⚡ 30 seconds</div>
-    <h3>Quick Version</h3>
-    <p>"We're Kais and Omar, founders of Interviewlary — an AI tool that lets people practice job interviews by voice with instant AI feedback. Think of it as <strong>Duolingo but for interviews</strong>. Live product, focused on MENA, raising Seed. Interested in AI or HR tech?"</p>
+    <div class="pitch-tag">Step 2: The Demo (45-60s)</div>
+    <p><strong>1. Target Role:</strong> Show the interface.<br><strong>2. Question:</strong> Play a relevant question.<br><strong>3. Answer:</strong> Show candidate's response.<br><strong>4. Feedback:</strong> Show specific, actionable AI feedback.<br><em>*Do not run a full 10-question interview here. Use fallback example if no internet.</em></p>
   </div>
 
-  <div class="section-title">Key Facts</div>
+  <div class="pitch-card">
+    <div class="pitch-tag">Step 3: The Close (2-3m)</div>
+    <p>Discuss differentiation: role customization, structured conditions, saved progress.<br><strong>Action:</strong> Agree on ONE next step (e.g. they do a trial, intro to HR, or agree to receive V1 update).</p>
+  </div>
 
+  <div class="section-title">Roles & Responsibilities</div>
   <div class="card">
     <div class="card-detail" style="max-height:none">
       <div class="card-detail-inner" style="border-top:none;padding-top:16px">
-        <div class="detail-section" style="margin-top:0">
-          <p>
-            <strong>Product:</strong> AI mock interviews (voice + text)<br>
-            <strong>Languages:</strong> English + Arabic<br>
-            <strong>Pricing:</strong> Free (2 tries) → $15/mo<br>
-            <strong>Market:</strong> MENA → Global<br>
-            <strong>Stage:</strong> Early, bootstrapped, live product<br>
-            <strong>Ask:</strong> Seed round / partnerships<br>
-            <strong>Website:</strong> interviewlary.com<br>
-            <strong>Vision 2030:</strong> Talent dev, youth employment
-          </p>
-        </div>
+        <p><strong>Kais:</strong> Lead introductions, explain the problem, qualify interest, and close with a next step.</p>
+        <p style="margin-top:8px"><strong>Omar:</strong> Operate the demonstration, handle deeper product questions, and record follow-up details.</p>
       </div>
     </div>
-  </div>
-
-  <div class="section-title">Session Q&A Scripts</div>
-
-  <div class="qa-box" style="margin-top:0;margin-bottom:12px">
-    <div class="qa-label">MFTA Session (2:00 PM)</div>
-    <p>"As AI-first startups scale in Saudi Arabia, what's the biggest gap you see founders struggling with — is it talent recruitment, team evaluation, or something else?"</p>
-  </div>
-  <div class="qa-box" style="margin-bottom:12px">
-    <div class="qa-label">Rewiring Capital (4:20 PM)</div>
-    <p>"I'm an early-stage founder building an AI interview trainer for underserved job seekers. When you evaluate founders with limited traction but a clear problem, what signals matter most?"</p>
   </div>
 </div>
 
 <!-- Checklist Page -->
 <div class="page" id="page-checklist">
-  <div class="section-title" style="margin-top:4px">Day 1 Scorecard</div>
+  <div class="section-title" style="margin-top:4px">Daily Scorecard</div>
 
   <div class="score-grid">
-    <div class="score-item"><div class="num" id="sc-investors">0</div><div class="slabel">Investors Pitched</div></div>
-    <div class="score-item"><div class="num" id="sc-cards">0</div><div class="slabel">Cards Collected</div></div>
-    <div class="score-item"><div class="num" id="sc-meetings">0</div><div class="slabel">Follow-ups Booked</div></div>
-    <div class="score-item"><div class="num" id="sc-questions">0</div><div class="slabel">Q&As Asked</div></div>
-  </div>
-  <div class="score-big">
-    <div class="num" id="sc-total">0<span style="font-size:24px;color:var(--text3)">/10</span></div>
-    <div class="slabel">Tasks Completed</div>
+    <div class="score-item"><div class="num" id="sc-conversations">0</div><div class="slabel">Meaningful Convos<br>(Target: 15-20)</div></div>
+    <div class="score-item"><div class="num" id="sc-demos">0</div><div class="slabel">Demonstrations<br>(Target: 6-8)</div></div>
+    <div class="score-item" style="grid-column: span 2;"><div class="num" id="sc-nextsteps">0</div><div class="slabel">Agreed Next Steps (Target: 4-6)</div></div>
   </div>
 
-  <div class="section-title">Goals Checklist</div>
-
+  <div class="section-title">Pre-Event QA Gates</div>
   <div class="card">
     <div class="card-detail" style="max-height:none">
       <div class="card-detail-inner" style="border-top:none;padding-top:12px">
-        <div class="check-item" data-check="g1" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="qa1" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Met with Lucidya team (learned AI playbook)</div>
+          <div class="check-text">Positioning: Clear in 20 seconds</div>
         </div>
-        <div class="check-item" data-check="g2" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="qa2" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Met with Capifly team (explored funding)</div>
+          <div class="check-text">Demo: 3 successful rehearsals < 60s</div>
         </div>
-        <div class="check-item" data-check="g3" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="qa3" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Visited 3+ exhibitor booths</div>
+          <div class="check-text">Language: Arabic voice passes QA tests</div>
         </div>
-        <div class="check-item" data-check="g4" onclick="toggleCheck(this)">
+        <div class="check-item" data-check="qa4" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Asked 1-2 smart questions in sessions</div>
-        </div>
-        <div class="check-item" data-check="g5" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Pitched to 3+ investors</div>
-        </div>
-        <div class="check-item" data-check="g6" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Collected 5+ business cards from investors</div>
-        </div>
-        <div class="check-item" data-check="g7" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Booked 1-2 follow-up meetings</div>
-        </div>
-        <div class="check-item" data-check="g8" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Identified top 3 investors to pursue</div>
-        </div>
-        <div class="check-item" data-check="g9" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Attended 2 key sessions</div>
-        </div>
-        <div class="check-item" data-check="g10" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Clear path to Seed funding or partnership</div>
+          <div class="check-text">Handoff: QR/link works on another phone</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section-title">Post-Event — Tonight</div>
+  <div class="section-title">Follow-Up Tasks</div>
   <div class="card">
     <div class="card-detail" style="max-height:none">
       <div class="card-detail-inner" style="border-top:none;padding-top:12px">
         <div class="check-item" data-check="p1" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Send LinkedIn requests to all contacts</div>
+          <div class="check-text">Sep 15-17: Follow up personally to get first completed interviews</div>
         </div>
         <div class="check-item" data-check="p2" onclick="toggleCheck(this)">
           <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Email Ihsan Jawad (STV)</div>
-        </div>
-        <div class="check-item" data-check="p3" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Email Mareme Dieng (Axian Group)</div>
-        </div>
-        <div class="check-item" data-check="p4" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Follow up with Capifly + Lucidya</div>
-        </div>
-        <div class="check-item" data-check="p5" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Document all learnings + investor intel</div>
+          <div class="check-text">Next Week: Review referrals & objections</div>
         </div>
       </div>
     </div>
@@ -875,11 +647,11 @@ body {
 
 <script>
 // State
-const STATE_KEY = 'money2020_state';
+const STATE_KEY = 'money2020_state_v2';
 let state = loadState();
 
 function defaultState() {
-  return { done: {}, checks: {}, counters: { investors: 0, cards: 0, meetings: 0, questions: 0 }, activeTab: 'schedule' };
+  return { done: {}, checks: {}, counters: { conversations: 0, demos: 0, nextsteps: 0 }, activeTab: 'schedule' };
 }
 function loadState() {
   try { const s = JSON.parse(localStorage.getItem(STATE_KEY)); return s && s.done ? s : defaultState(); } catch { return defaultState(); }
@@ -924,14 +696,11 @@ function toggleCheck(item) {
   if (isChecked) { box.classList.add('checked'); item.classList.add('checked'); } 
   else { box.classList.remove('checked'); item.classList.remove('checked'); }
   saveState();
-  updateProgress();
-  updateCounters();
 }
 
 // Counters (tap to increment, long-press to decrement)
 function setupCounters() {
   document.querySelectorAll('.score-item').forEach(item => {
-    let timer;
     const numEl = item.querySelector('.num');
     const key = numEl.id.replace('sc-', '');
     item.style.cursor = 'pointer';
@@ -956,11 +725,6 @@ function updateProgress() {
   const pct = Math.round((done / total) * 100);
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = done + ' / ' + total + ' completed';
-}
-
-function updateCounters() {
-  const goalChecks = Object.entries(state.checks).filter(([k]) => k.startsWith('g')).filter(([, v]) => v).length;
-  document.getElementById('sc-total').innerHTML = goalChecks + '<span style="font-size:24px;color:var(--text3)">/10</span>';
 }
 
 // Restore state on load
@@ -991,7 +755,6 @@ function restoreState() {
     if (tab) switchTab(tab);
   }
   updateProgress();
-  updateCounters();
 }
 
 function resetAll() {

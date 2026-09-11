@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#000000">
@@ -11,50 +11,64 @@
 <style>
 :root {
   --bg: #000000;
+  --bg-secondary: #121212;
   --card: #1c1c1e;
-  --card-alt: #2c2c2e;
+  --card-hover: #2c2c2e;
   --accent: #0a84ff;
+  --accent-glow: rgba(10, 132, 255, 0.2);
   --green: #30d158;
   --orange: #ff9f0a;
   --red: #ff453a;
   --purple: #bf5af2;
+  --yellow: #ffd60a;
   --text: #ffffff;
-  --text2: #ebebf5cc;
-  --text3: #ebebf599;
-  --sep: #38383a;
-  --safe-top: env(safe-area-inset-top, 0px);
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --text-secondary: rgba(235, 235, 245, 0.6);
+  --text-tertiary: rgba(235, 235, 245, 0.3);
+  --sep: rgba(84, 84, 88, 0.65);
+  --safe-top: env(safe-area-inset-top, 44px);
+  --safe-bottom: env(safe-area-inset-bottom, 34px);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif; }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100dvh;
   padding-top: var(--safe-top);
-  padding-bottom: calc(60px + var(--safe-bottom));
+  padding-bottom: calc(80px + var(--safe-bottom));
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
 }
+
+/* Typography */
+h1 { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; }
+h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin: 28px 0 16px; display: flex; align-items: center; gap: 8px; }
+h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.4px; }
+p { font-size: 15px; line-height: 1.4; color: var(--text-secondary); }
 
 /* Header */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(0,0,0,0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 12px 20px 8px;
-  border-bottom: 0.5px solid var(--sep);
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 16px 20px 12px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.1);
 }
-.header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
-.header .sub { font-size: 13px; color: var(--text3); margin-top: 2px; }
-.header .progress-wrap { margin-top: 10px; }
-.header .progress-bar { height: 4px; background: var(--card-alt); border-radius: 2px; overflow: hidden; }
-.header .progress-fill { height: 100%; background: var(--green); border-radius: 2px; transition: width 0.4s ease; }
-.header .progress-label { font-size: 12px; color: var(--text3); margin-top: 4px; text-align: right; }
+.header .sub { font-size: 13px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Progress Bar */
+.progress-wrap { margin-top: 16px; }
+.progress-bar { height: 6px; background: var(--card); border-radius: 4px; overflow: hidden; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5); }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #30d158, #34c759); border-radius: 4px; transition: width 0.5s cubic-bezier(0.1, 0.7, 0.1, 1); }
+.progress-label { font-size: 12px; color: var(--text-secondary); margin-top: 6px; text-align: right; font-variant-numeric: tabular-nums; }
 
 /* Tab bar */
 .tab-bar {
@@ -63,13 +77,13 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(28,28,30,0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 0.5px solid var(--sep);
+  background: rgba(28,28,30,0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-top: 0.5px solid rgba(255,255,255,0.15);
   display: flex;
   padding-bottom: var(--safe-bottom);
-  height: calc(60px + var(--safe-bottom));
+  height: calc(65px + var(--safe-bottom));
 }
 .tab {
   flex: 1;
@@ -77,629 +91,626 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  padding: 6px 0;
+  gap: 4px;
+  padding: 8px 0;
   cursor: pointer;
-  color: var(--text3);
+  color: var(--text-tertiary);
   font-size: 10px;
-  font-weight: 500;
-  transition: color 0.2s;
+  font-weight: 600;
+  transition: all 0.2s ease;
   border: none;
   background: none;
-  -webkit-appearance: none;
 }
 .tab.active { color: var(--accent); }
-.tab svg { width: 22px; height: 22px; }
+.tab svg { width: 24px; height: 24px; stroke-width: 1.8px; transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.tab.active svg { transform: scale(1.1); stroke-width: 2.2px; }
 
 /* Pages */
-.page { display: none; padding: 16px 16px 24px; }
+.page { display: none; padding: 0 16px 24px; animation: fadeIn 0.3s ease; }
 .page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Section headers */
-.section-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 20px 0 10px;
-  letter-spacing: -0.3px;
-}
-.section-title:first-child { margin-top: 4px; }
-
-/* Schedule card */
-.card {
+/* Cards Layout */
+.card-group {
   background: var(--card);
-  border-radius: 14px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.card-group-inner > .check-item {
+  border-bottom: 0.5px solid rgba(255,255,255,0.1);
+}
+.card-group-inner > .check-item:last-child {
+  border-bottom: none;
+}
+
+/* Schedule Card */
+.schedule-card {
+  background: var(--card);
+  border-radius: 16px;
   margin-bottom: 12px;
   overflow: hidden;
-  transition: transform 0.15s;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.1, 0.7, 0.1, 1);
 }
-.card:active { transform: scale(0.98); }
-.card-header {
+.schedule-card:active { transform: scale(0.97); }
+.schedule-header {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
   cursor: pointer;
-  user-select: none;
 }
 .time-badge {
-  background: var(--card-alt);
-  border-radius: 8px;
-  padding: 6px 8px;
-  min-width: 52px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 8px;
+  min-width: 56px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.time-badge .t { font-size: 13px; font-weight: 600; line-height: 1.2; }
-.time-badge .ampm { font-size: 10px; color: var(--text3); }
-.card-info { flex: 1; min-width: 0; }
-.card-info .name { font-size: 15px; font-weight: 600; line-height: 1.3; }
-.card-info .loc { font-size: 12px; color: var(--text3); margin-top: 2px; display: flex; align-items: center; gap: 4px; }
-.card-status {
-  width: 26px;
-  height: 26px;
+.time-badge .t { font-size: 14px; font-weight: 700; color: var(--text); }
+.time-badge .ampm { font-size: 10px; font-weight: 600; color: var(--text-secondary); margin-top: 1px; }
+
+.schedule-info { flex: 1; min-width: 0; padding-top: 2px; }
+.schedule-info .name { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.schedule-info .loc { font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; }
+
+.status-circle {
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 2px solid var(--sep);
+  border: 2px solid rgba(255,255,255,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.card-status.done { background: var(--green); border-color: var(--green); }
-.card-status svg { width: 14px; height: 14px; opacity: 0; transition: opacity 0.2s; }
-.card-status.done svg { opacity: 1; }
+.status-circle.done { background: var(--green); border-color: var(--green); transform: scale(1.05); }
+.status-circle svg { width: 14px; height: 14px; opacity: 0; stroke-dasharray: 20; stroke-dashoffset: 20; transition: stroke-dashoffset 0.3s ease; }
+.status-circle.done svg { opacity: 1; stroke-dashoffset: 0; }
 
-/* Expandable detail */
-.card-detail {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
-.card-detail.open { max-height: 2000px; }
-.card-detail-inner {
-  padding: 0 16px 16px;
-  border-top: 0.5px solid var(--sep);
-}
-.detail-section { margin-top: 12px; }
-.detail-section .label { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-.detail-section p { font-size: 13px; color: var(--text2); line-height: 1.5; }
+/* Schedule Details */
+.schedule-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.1, 0.7, 0.1, 1); }
+.schedule-detail.open { max-height: 800px; }
+.detail-content { padding: 0 16px 16px; border-top: 0.5px solid rgba(255,255,255,0.05); margin-top: 4px; }
+.detail-block { margin-top: 14px; }
+.detail-block .label { font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+.detail-block p { font-size: 14px; color: var(--text); }
 
-/* Checklist items */
+/* Color Themes for Schedule */
+.theme-blue .time-badge { background: rgba(10, 132, 255, 0.15); color: var(--accent); }
+.theme-blue .time-badge .t, .theme-blue .time-badge .ampm { color: var(--accent); }
+.theme-blue .status-circle.done { background: var(--accent); border-color: var(--accent); }
+
+.theme-green .time-badge { background: rgba(48, 209, 88, 0.15); color: var(--green); }
+.theme-green .time-badge .t, .theme-green .time-badge .ampm { color: var(--green); }
+.theme-green .status-circle.done { background: var(--green); border-color: var(--green); }
+
+.theme-orange .time-badge { background: rgba(255, 159, 10, 0.15); color: var(--orange); }
+.theme-orange .time-badge .t, .theme-orange .time-badge .ampm { color: var(--orange); }
+.theme-orange .status-circle.done { background: var(--orange); border-color: var(--orange); }
+
+.theme-purple .time-badge { background: rgba(191, 90, 242, 0.15); color: var(--purple); }
+.theme-purple .time-badge .t, .theme-purple .time-badge .ampm { color: var(--purple); }
+.theme-purple .status-circle.done { background: var(--purple); border-color: var(--purple); }
+
+/* Checklist Item */
 .check-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 0.5px solid var(--sep);
+  gap: 14px;
+  padding: 14px 16px;
   cursor: pointer;
-  user-select: none;
+  transition: background 0.2s;
 }
-.check-item:last-child { border-bottom: none; }
+.check-item:active { background: rgba(255,255,255,0.05); }
 .check-box {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  border: 2px solid var(--sep);
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.2);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1px;
-  transition: all 0.2s;
+  margin-top: 2px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.check-box.checked { background: var(--green); border-color: var(--green); }
-.check-box svg { width: 13px; height: 13px; opacity: 0; transition: opacity 0.2s; }
+.check-box.checked { background: var(--accent); border-color: var(--accent); }
+.check-box svg { width: 14px; height: 14px; opacity: 0; }
 .check-box.checked svg { opacity: 1; }
-.check-text { font-size: 14px; color: var(--text2); line-height: 1.4; flex: 1; }
-.check-item.checked .check-text { text-decoration: line-through; color: var(--text3); }
+.check-text { font-size: 15px; color: var(--text); line-height: 1.4; flex: 1; transition: color 0.2s; }
+.check-text strong { color: #fff; font-weight: 600; }
+.check-item.checked .check-text { color: var(--text-tertiary); text-decoration: line-through; }
+.check-item.checked .check-text strong { color: var(--text-tertiary); }
 
-/* People cards */
+/* Person Card */
 .person-card {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 14px;
+  padding: 14px 16px;
   background: var(--card);
-  border-radius: 12px;
-  margin-bottom: 8px;
+  border-radius: 16px;
+  margin-bottom: 10px;
 }
-.person-avatar {
-  width: 40px;
-  height: 40px;
+.avatar {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .person-info { flex: 1; min-width: 0; }
-.person-info .pname { font-size: 14px; font-weight: 600; }
-.person-info .prole { font-size: 12px; color: var(--text3); margin-top: 1px; }
-.person-tag {
-  font-size: 10px;
-  font-weight: 600;
-  padding: 3px 8px;
+.person-info .name { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+.person-info .role { font-size: 13px; color: var(--text-secondary); }
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Pitch Blocks */
+.pitch-block {
+  background: linear-gradient(145deg, rgba(28,28,30,1) 0%, rgba(18,18,18,1) 100%);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.pitch-block-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.step-badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 8px;
   border-radius: 6px;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
-  flex-shrink: 0;
 }
-.tag-user { background: rgba(10,132,255,0.15); color: var(--accent); }
-.tag-dist { background: rgba(48,209,88,0.15); color: var(--green); }
-.tag-founder { background: rgba(255,159,10,0.15); color: var(--orange); }
-.tag-investor { background: rgba(191,90,242,0.15); color: var(--purple); }
-
-/* Pitch card */
-.pitch-card {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 12px;
-  border: 1px solid rgba(10,132,255,0.2);
-}
-.pitch-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
-.pitch-card p { font-size: 14px; color: var(--text2); line-height: 1.6; }
-.pitch-card .pitch-tag { 
-  display: inline-block;
-  font-size: 11px; 
-  color: var(--accent); 
-  background: rgba(10,132,255,0.12); 
-  padding: 3px 8px; 
-  border-radius: 6px; 
-  margin-bottom: 10px; 
-  font-weight: 600; 
-}
-
-/* Scorecard */
-.score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-.score-item {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-}
-.score-item .num { font-size: 28px; font-weight: 700; }
-.score-item .slabel { font-size: 11px; color: var(--text3); margin-top: 4px; }
-.score-big {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  margin-top: 10px;
-}
-.score-big .num { font-size: 48px; font-weight: 700; }
-.score-big .slabel { font-size: 13px; color: var(--text3); margin-top: 4px; }
-
-/* Color accents for time blocks */
-.accent-blue .time-badge { background: rgba(10,132,255,0.15); color: var(--accent); }
-.accent-green .time-badge { background: rgba(48,209,88,0.15); color: var(--green); }
-.accent-orange .time-badge { background: rgba(255,159,10,0.15); color: var(--orange); }
-.accent-red .time-badge { background: rgba(255,69,58,0.15); color: var(--red); }
-.accent-purple .time-badge { background: rgba(191,90,242,0.15); color: var(--purple); }
-
-/* Q&A expandable */
-.qa-box {
-  background: rgba(10,132,255,0.08);
-  border-radius: 10px;
-  padding: 12px;
-  margin-top: 8px;
+.pitch-block h3 { font-size: 18px; font-weight: 700; }
+.pitch-block p { font-size: 15px; color: var(--text); line-height: 1.5; margin-top: 10px; }
+.pitch-block .highlight { color: var(--accent); font-weight: 600; }
+.quote-box {
+  background: rgba(10, 132, 255, 0.1);
   border-left: 3px solid var(--accent);
+  padding: 12px 14px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 12px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text);
 }
-.qa-box .qa-label { font-size: 11px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
-.qa-box p { font-size: 13px; color: var(--text2); line-height: 1.5; font-style: italic; }
 
-/* Reset button */
-.reset-btn {
-  display: block;
+/* Scorecard Widgets */
+.widget-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.widget {
+  background: linear-gradient(180deg, var(--card) 0%, #151516 100%);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 4px 12px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.widget.wide { grid-column: span 2; flex-direction: row; align-items: center; }
+.widget .icon { width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.widget .label { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+.widget .value { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.widget.wide .value { font-size: 42px; margin-top: 0; }
+.widget.wide .content { flex: 1; }
+
+/* Interactive Widgets */
+.interactive-widget { cursor: pointer; transition: transform 0.15s; }
+.interactive-widget:active { transform: scale(0.95); }
+.interactive-widget .controls { position: absolute; top: 16px; right: 16px; color: var(--text-tertiary); font-size: 20px; font-weight: 300; }
+
+.btn-danger {
   width: 100%;
-  padding: 14px;
-  background: rgba(255,69,58,0.12);
+  padding: 16px;
+  background: rgba(255,69,58,0.1);
   color: var(--red);
   border: none;
-  border-radius: 12px;
-  font-size: 15px;
+  border-radius: 14px;
+  font-size: 16px;
   font-weight: 600;
+  margin-top: 32px;
   cursor: pointer;
-  margin-top: 24px;
-  font-family: inherit;
 }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <div class="header">
-  <h1>Money20/20 🚀</h1>
-  <div class="sub">Day 1 — Sep 14 · Product & Distribution Focus</div>
+  <div class="sub">September 14 · Riyadh</div>
+  <h1>Money20/20</h1>
   <div class="progress-wrap">
     <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-    <div class="progress-label" id="progressLabel">0 / 7 blocks completed</div>
+    <div class="progress-label" id="progressLabel">0 of 7 schedule blocks</div>
   </div>
 </div>
 
-<!-- Pages -->
+<!-- ================= SCHEDULE ================= -->
 <div class="page active" id="page-schedule">
+  
+  <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Morning Targets</h2>
 
-  <div class="section-title">Morning</div>
-
-  <!-- 11:00 -->
-  <div class="card accent-blue" data-id="arrival">
-    <div class="card-header" onclick="toggleCard(this)">
+  <div class="schedule-card theme-blue" data-id="s1">
+    <div class="schedule-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">11:00</div><div class="ampm">AM</div></div>
-      <div class="card-info">
-        <div class="name">Arrival & Badge Pickup</div>
-        <div class="loc">📍 Main Registration Lobby</div>
+      <div class="schedule-info">
+        <div class="name">Arrival & QA Setup</div>
+        <div class="loc">📍 Main Registration</div>
       </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="status-circle" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">What to do</div>
-          <p>Collect badges. Grab event map. Confirm phone internet connectivity.</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">QA Gate Check</div>
-          <p>Test the 45s demo on cellular. Ensure fallback screenshot/recording works.</p>
-        </div>
+    <div class="schedule-detail">
+      <div class="detail-content">
+        <div class="detail-block"><div class="label">Action</div><p>Collect passes. Grab event map. Find a quiet corner to run a cellular internet test.</p></div>
+        <div class="detail-block"><div class="label">Gate Check</div><p>Test the 45s demo on your phone. Ensure backup screenshots/videos are loaded.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- 11:15 -->
-  <div class="card accent-green" data-id="lucidya">
-    <div class="card-header" onclick="toggleCard(this)">
+  <div class="schedule-card theme-green" data-id="s2">
+    <div class="schedule-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">11:15</div><div class="ampm">AM</div></div>
-      <div class="card-info">
-        <div class="name">Lucidya Booth — GTM Playbook</div>
+      <div class="schedule-info">
+        <div class="name">Lucidya Booth</div>
         <div class="loc">📍 H1.B99 · Hall 1</div>
       </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="status-circle" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Why visit</div>
-          <p>AI-native CX platform. Focus on learning their Go-To-Market and distribution strategy for enterprise/HR partnerships.</p>
-        </div>
-        <div class="qa-box">
-          <div class="qa-label">Questions</div>
-          <p>1. How did you validate enterprise demand early on?<br>2. What accelerator/growth programs helped most?</p>
-        </div>
+    <div class="schedule-detail">
+      <div class="detail-content">
+        <div class="detail-block"><div class="label">Objective</div><p>Learn GTM playbook for enterprise/HR partnerships from an AI-native Saudi company.</p></div>
+        <div class="quote-box">"How did you validate enterprise demand early on, and what growth programs helped the most?"</div>
       </div>
     </div>
   </div>
 
-  <!-- 12:15 -->
-  <div class="card accent-orange" data-id="lunch">
-    <div class="card-header" onclick="toggleCard(this)">
+  <div class="schedule-card theme-orange" data-id="s3">
+    <div class="schedule-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">12:15</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">Lunch + Target Networking</div>
-        <div class="loc">📍 Food Area / Networking Lounge</div>
+      <div class="schedule-info">
+        <div class="name">Distribution Networking</div>
+        <div class="loc">📍 Food Area / Lounge</div>
       </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="status-circle" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Strategy</div>
-          <p>Look for recruiters, coaches, HR tech innovators, and other startup founders. Goal: product distribution.</p>
-        </div>
-        <div class="qa-box">
-          <div class="qa-label">Cold Approach</div>
-          <p>"Hi, I'm Kais. We're building a tool to help candidates practice realistic interviews using AI. Do you handle hiring or talent development for your team?"</p>
-        </div>
+    <div class="schedule-detail">
+      <div class="detail-content">
+        <div class="detail-block"><div class="label">Target</div><p>Recruiters, coaches, HR tech innovators, and startup founders.</p></div>
+        <div class="quote-box">"Hi, I'm Kais. We're building an AI tool for realistic interview prep. Do you handle hiring or talent development for your team?"</div>
       </div>
     </div>
   </div>
 
-  <div class="section-title">Afternoon</div>
+  <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Afternoon Sessions</h2>
 
-  <!-- 2:00 -->
-  <div class="card accent-red" data-id="session1">
-    <div class="card-header" onclick="toggleCard(this)">
+  <div class="schedule-card theme-purple" data-id="s4">
+    <div class="schedule-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">2:00</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">🎯 MFTA Saudi Fintech Growth</div>
+      <div class="schedule-info">
+        <div class="name">MFTA Saudi Growth</div>
         <div class="loc">📍 Hall 1 · Zain Umer</div>
       </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="status-circle" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Focus</div>
-          <p>Listen for problems regarding talent recruitment and hiring bottlenecks as the ecosystem scales.</p>
-        </div>
-        <div class="qa-box">
-          <div class="qa-label">Q&A Question</div>
-          <p>"As startups scale in Saudi Arabia, how much of a bottleneck is talent evaluation? We're building a tool to help candidates prep and companies assess faster."</p>
-        </div>
+    <div class="schedule-detail">
+      <div class="detail-content">
+        <div class="detail-block"><div class="label">Focus</div><p>Listen for talent recruitment bottlenecks as the ecosystem scales.</p></div>
+        <div class="quote-box">"As startups scale here, how much of a bottleneck is talent evaluation? We're building a tool to help companies assess faster."</div>
       </div>
     </div>
   </div>
 
-  <!-- 3:30 -->
-  <div class="card accent-green" data-id="booths2">
-    <div class="card-header" onclick="toggleCard(this)">
+  <div class="schedule-card theme-green" data-id="s5">
+    <div class="schedule-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">3:30</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">Capifly + Signzy Booths</div>
-        <div class="loc">📍 H2.P128 + H2.J52 · Hall 2</div>
+      <div class="schedule-info">
+        <div class="name">Capifly + Signzy</div>
+        <div class="loc">📍 H2.P128 + H2.J52</div>
       </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="status-circle" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Strategy</div>
-          <p>• Capifly: Ask "What signals do you look for regarding a founder's readiness and team quality?"<br>• Signzy: Ask how they established distribution partnerships with financial institutions.</p>
-        </div>
+    <div class="schedule-detail">
+      <div class="detail-content">
+        <div class="detail-block"><div class="label">Split Strategy</div><p><strong>Capifly:</strong> Ask what signals they look for in founder readiness.<br><strong>Signzy:</strong> Ask how they established distribution partnerships with banks.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- 4:20 -->
-  <div class="card accent-purple" data-id="session2">
-    <div class="card-header" onclick="toggleCard(this)">
+  <div class="schedule-card theme-blue" data-id="s6">
+    <div class="schedule-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">4:20</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">🔥 Rewiring Capital</div>
-        <div class="loc">📍 Hall 1 · Ihsan Jawad, Mareme Dieng</div>
+      <div class="schedule-info">
+        <div class="name">Rewiring Capital</div>
+        <div class="loc">📍 Hall 1 · Ihsan Jawad</div>
       </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="status-circle" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Focus</div>
-          <p>Understand what investors see as "founder readiness" and talent evaluation limits.</p>
-        </div>
-        <div class="qa-box">
-          <div class="qa-label">Q&A Question</div>
-          <p>"When evaluating founders with early products, how heavily do you weigh their ability to attract and evaluate top talent?"</p>
-        </div>
-        <div class="detail-section">
-          <div class="label">Post-Session Ask</div>
-          <p>No fundraising ask! Say: "Can I send you our V1 product update next month?"</p>
-        </div>
+    <div class="schedule-detail">
+      <div class="detail-content">
+        <div class="detail-block"><div class="label">Focus</div><p>Understand what investors define as "founder readiness" regarding talent.</p></div>
+        <div class="quote-box">"When evaluating early founders, how heavily do you weigh their ability to attract and evaluate top talent?"</div>
+        <div class="detail-block"><div class="label">The Ask</div><p>No fundraising! Just ask: "Can I send you our V1 product update next month?"</p></div>
       </div>
     </div>
   </div>
 
-  <!-- 5:10 -->
-  <div class="card accent-blue" data-id="blitz">
-    <div class="card-header" onclick="toggleCard(this)">
+  <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Evening</h2>
+
+  <div class="schedule-card theme-orange" data-id="s7">
+    <div class="schedule-header" onclick="toggleCard(this)">
       <div class="time-badge"><div class="t">5:10</div><div class="ampm">PM</div></div>
-      <div class="card-info">
-        <div class="name">Evening Demo Blitz</div>
+      <div class="schedule-info">
+        <div class="name">Final Demo Blitz</div>
         <div class="loc">📍 Networking Lounge</div>
       </div>
-      <div class="card-status" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="status-circle" onclick="event.stopPropagation();toggleDone(this)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
     </div>
-    <div class="card-detail">
-      <div class="card-detail-inner">
-        <div class="detail-section">
-          <div class="label">Strategy</div>
-          <p>Hit the quota of 6-8 total demonstrations today. Record context, interest, and agreed action for every contact.</p>
-        </div>
+    <div class="schedule-detail">
+      <div class="detail-content">
+        <div class="detail-block"><div class="label">Execution</div><p>Hit your quota. Record context, interest, and the agreed action for EVERY single contact. Without an agreed action, it's just a connection.</p></div>
       </div>
     </div>
   </div>
 
 </div>
 
-<!-- People Page -->
+<!-- ================= PEOPLE ================= -->
 <div class="page" id="page-people">
   
-  <div class="section-title" style="margin-top:4px">🎯 Distribution & Users (Primary)</div>
-  <p style="font-size:13px; color:var(--text3); margin-bottom:12px">Search the event directory for HR Tech, Recruiters, and Career Coaches.</p>
+  <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Key Targets</h2>
 
-  <div class="section-title">🟡 Founders & Advisors</div>
+  <div class="section-title" style="margin-top:0">🎯 Distribution (Primary)</div>
+  <p style="margin-bottom:16px">Hunt the event directory and floor for Recruiters, HR Tech leaders, and Career Coaches. They are your gatekeepers to users.</p>
+
+  <div class="section-title">🟡 Founders & Accelerators</div>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(255,159,10,0.15);color:#ff9f0a">AS</div>
+    <div class="avatar" style="background:rgba(255,159,10,0.15);color:var(--orange)">AS</div>
     <div class="person-info">
-      <div class="pname">Anand Shrivastava</div>
-      <div class="prole">Head of Product · Lucidya</div>
+      <div class="name">Anand Shrivastava</div>
+      <div class="role">Head of Product · Lucidya</div>
     </div>
-    <div class="person-tag tag-founder">Founder</div>
+    <div class="tag" style="background:rgba(255,159,10,0.15);color:var(--orange)">Founder</div>
   </div>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(10,132,255,0.15);color:#0a84ff">ZU</div>
+    <div class="avatar" style="background:rgba(10,132,255,0.15);color:var(--accent)">ZU</div>
     <div class="person-info">
-      <div class="pname">Zain Umer</div>
-      <div class="prole">CEO · CFC MENA / MFTA</div>
+      <div class="name">Zain Umer</div>
+      <div class="role">CEO · CFC MENA</div>
     </div>
-    <div class="person-tag tag-user">Community</div>
+    <div class="tag" style="background:rgba(10,132,255,0.15);color:var(--accent)">Community</div>
   </div>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(48,209,88,0.15);color:#30d158">OA</div>
+    <div class="avatar" style="background:rgba(48,209,88,0.15);color:var(--green)">OA</div>
     <div class="person-info">
-      <div class="pname">Omar Aloyoun</div>
-      <div class="prole">Startups Adviser · Techstars NYC</div>
+      <div class="name">Omar Aloyoun</div>
+      <div class="role">Startups Adviser · Techstars</div>
     </div>
-    <div class="person-tag tag-dist">Accelerator</div>
+    <div class="tag" style="background:rgba(48,209,88,0.15);color:var(--green)">Accelerator</div>
   </div>
 
   <div class="section-title">🟣 Investors (Secondary)</div>
+  <p style="margin-bottom:12px">Do not pitch for funds. Pitch for feedback and updates.</p>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(191,90,242,0.15);color:#bf5af2">IJ</div>
+    <div class="avatar" style="background:rgba(191,90,242,0.15);color:var(--purple)">IJ</div>
     <div class="person-info">
-      <div class="pname">Ihsan Jawad</div>
-      <div class="prole">General Partner · STV 🇸🇦</div>
+      <div class="name">Ihsan Jawad</div>
+      <div class="role">General Partner · STV 🇸🇦</div>
     </div>
-    <div class="person-tag tag-investor">Investor</div>
+    <div class="tag" style="background:rgba(191,90,242,0.15);color:var(--purple)">Investor</div>
   </div>
   <div class="person-card">
-    <div class="person-avatar" style="background:rgba(191,90,242,0.15);color:#bf5af2">MD</div>
+    <div class="avatar" style="background:rgba(191,90,242,0.15);color:var(--purple)">MD</div>
     <div class="person-info">
-      <div class="pname">Mareme Dieng</div>
-      <div class="prole">Head of M&A · Axian Group 🇦🇪</div>
+      <div class="name">Mareme Dieng</div>
+      <div class="role">Head of M&A · Axian Group</div>
     </div>
-    <div class="person-tag tag-investor">Investor</div>
+    <div class="tag" style="background:rgba(191,90,242,0.15);color:var(--purple)">Judge</div>
   </div>
 </div>
 
-<!-- Pitch Page -->
+<!-- ================= PITCH ================= -->
 <div class="page" id="page-pitch">
-  <div class="section-title" style="margin-top:4px">The Flow</div>
 
-  <div class="pitch-card">
-    <div class="pitch-tag">Step 1: The Hook (15-20s)</div>
-    <p>"Hi, I'm Kais. We built Interviewlary—it gives candidates realistic mock interviews for specific roles, with instant feedback on their answers. Are you involved in hiring or coaching at your company?"</p>
+  <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> The Playbook</h2>
+
+  <div class="pitch-block">
+    <div class="pitch-block-header">
+      <div class="step-badge">Phase 1</div>
+      <h3>The Hook (15–20s)</h3>
+    </div>
+    <p>Establish relevance and explain the benefit immediately.</p>
+    <div class="quote-box">"Hi, I'm Kais. We built Interviewlary—it gives candidates realistic mock interviews for specific roles, with instant feedback on their answers. Are you involved in hiring or coaching?"</div>
   </div>
 
-  <div class="pitch-card">
-    <div class="pitch-tag">Step 2: The Demo (45-60s)</div>
-    <p><strong>1. Target Role:</strong> Show the interface.<br><strong>2. Question:</strong> Play a relevant question.<br><strong>3. Answer:</strong> Show candidate's response.<br><strong>4. Feedback:</strong> Show specific, actionable AI feedback.<br><em>*Do not run a full 10-question interview here. Use fallback example if no internet.</em></p>
+  <div class="pitch-block">
+    <div class="pitch-block-header">
+      <div class="step-badge">Phase 2</div>
+      <h3>The Demo (45–60s)</h3>
+    </div>
+    <p>Show the product's most convincing result. <strong>Do not run a full 10-question interview.</strong></p>
+    <ul style="margin-top:12px; padding-left:20px; font-size:14px; color:var(--text-secondary); line-height:1.6">
+      <li><strong>Target Role:</strong> Show the clean interface.</li>
+      <li><strong>Question:</strong> Show a relevant job question.</li>
+      <li><strong>Answer:</strong> Show the candidate's response.</li>
+      <li><strong>Feedback:</strong> <span class="highlight">Highlight the actionable AI feedback.</span></li>
+    </ul>
   </div>
 
-  <div class="pitch-card">
-    <div class="pitch-tag">Step 3: The Close (2-3m)</div>
-    <p>Discuss differentiation: role customization, structured conditions, saved progress.<br><strong>Action:</strong> Agree on ONE next step (e.g. they do a trial, intro to HR, or agree to receive V1 update).</p>
-  </div>
-
-  <div class="section-title">Roles & Responsibilities</div>
-  <div class="card">
-    <div class="card-detail" style="max-height:none">
-      <div class="card-detail-inner" style="border-top:none;padding-top:16px">
-        <p><strong>Kais:</strong> Lead introductions, explain the problem, qualify interest, and close with a next step.</p>
-        <p style="margin-top:8px"><strong>Omar:</strong> Operate the demonstration, handle deeper product questions, and record follow-up details.</p>
-      </div>
+  <div class="pitch-block">
+    <div class="pitch-block-header">
+      <div class="step-badge">Phase 3</div>
+      <h3>The Close (2–3m)</h3>
+    </div>
+    <p>Discuss differentiation: role customization, structured conditions, and saved progress. Acknowledge that it supports prep, but doesn't predict hiring outcomes.</p>
+    <div style="background:rgba(48,209,88,0.1); padding:12px; border-radius:8px; margin-top:12px;">
+      <div style="font-size:12px; font-weight:800; color:var(--green); text-transform:uppercase; margin-bottom:4px;">Crucial Handoff</div>
+      <p style="font-size:14px; color:var(--text); margin:0;">Agree on <strong>ONE</strong> clear next step (e.g., complete a first interview, arrange a trial discussion, or get a V1 update). A contact without an action is dead.</p>
     </div>
   </div>
+
 </div>
 
-<!-- Checklist Page -->
+<!-- ================= GOALS & CHECKLIST ================= -->
 <div class="page" id="page-checklist">
-  <div class="section-title" style="margin-top:4px">Daily Scorecard</div>
 
-  <div class="score-grid">
-    <div class="score-item"><div class="num" id="sc-conversations">0</div><div class="slabel">Meaningful Convos<br>(Target: 15-20)</div></div>
-    <div class="score-item"><div class="num" id="sc-demos">0</div><div class="slabel">Demonstrations<br>(Target: 6-8)</div></div>
-    <div class="score-item" style="grid-column: span 2;"><div class="num" id="sc-nextsteps">0</div><div class="slabel">Agreed Next Steps (Target: 4-6)</div></div>
+  <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Daily Tracker</h2>
+
+  <div class="widget-grid">
+    <div class="widget interactive-widget" id="w-demos">
+      <div class="controls">+</div>
+      <div class="icon" style="background:rgba(10,132,255,0.15); color:var(--accent)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+      <div>
+        <div class="label">Demos (Target 6-8)</div>
+        <div class="value" id="sc-demos">0</div>
+      </div>
+    </div>
+    <div class="widget interactive-widget" id="w-convos">
+      <div class="controls">+</div>
+      <div class="icon" style="background:rgba(255,159,10,0.15); color:var(--orange)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <div>
+        <div class="label">Convos (Target 15-20)</div>
+        <div class="value" id="sc-convos">0</div>
+      </div>
+    </div>
+    <div class="widget wide interactive-widget" id="w-nextsteps">
+      <div class="controls">+</div>
+      <div class="content">
+        <div class="label" style="color:var(--green)">Agreed Next Steps (Target 4-6)</div>
+        <div class="value" id="sc-nextsteps">0</div>
+      </div>
+      <div class="icon" style="background:rgba(48,209,88,0.15); color:var(--green); width:48px; height:48px; border-radius:14px; margin:0;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+    </div>
   </div>
 
-  <div class="section-title">Before the event</div>
-  <div class="card">
-    <div class="card-detail" style="max-height:none">
-      <div class="card-detail-inner" style="border-top:none;padding-top:12px">
-        <div class="check-item" data-check="be1" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Decide <strong>one simple sentence</strong> to explain Interviewlary.</div>
-        </div>
-        <div class="check-item" data-check="be2" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Decide what is <strong>working now / still improving / not ready</strong>.</div>
-        </div>
-        <div class="check-item" data-check="be3" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Prepare a <strong>45–60 sec demo</strong>.</div>
-        </div>
-        <div class="check-item" data-check="be4" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Prepare a <strong>backup demo/video</strong> in case internet or product fails.</div>
-        </div>
-        <div class="check-item" data-check="be5" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Test the <strong>QR code / website link</strong> on another phone.</div>
-        </div>
-        <div class="check-item" data-check="be6" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Prepare a <strong>demo account</strong> with fake user data.</div>
-        </div>
-        <div class="check-item" data-check="be7" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Test signup → interview → feedback → history.</div>
-        </div>
-        <div class="check-item" data-check="be8" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Test Arabic text.</div>
-        </div>
-        <div class="check-item" data-check="be9" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Only use Arabic voice if it works reliably.</div>
-        </div>
-        <div class="check-item" data-check="be10" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Check pricing/free limits so you don't say anything wrong.</div>
-        </div>
-        <div class="check-item" data-check="be11" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Prepare answers: Why us? ChatGPT? Arabic? Privacy? Pricing? V1?</div>
-        </div>
-        <div class="check-item" data-check="be12" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Find <strong>15–20 people</strong> you actually want to meet.</div>
-        </div>
-        <div class="check-item" data-check="be13" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">For each person, know: <strong>Why do I want to talk to them?</strong></div>
-        </div>
-        <div class="check-item" data-check="be14" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Decide roles (You: talk/close, Omar: demo/contact info).</div>
-        </div>
-        <div class="check-item" data-check="be15" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Both of you practice the demo <strong>3 times</strong>.</div>
-        </div>
-        <div class="check-item" data-check="be16" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Charge phones/laptops + bring power bank.</div>
-        </div>
+  <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Before the Event</h2>
+
+  <div class="card-group">
+    <div class="card-group-inner">
+      <div class="check-item" data-check="be1" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Decide <strong>one simple sentence</strong> to explain Interviewlary.</div>
+      </div>
+      <div class="check-item" data-check="be2" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Decide what is <strong>working now / still improving / not ready</strong>.</div>
+      </div>
+      <div class="check-item" data-check="be11" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Prepare answers: Why us? ChatGPT? Arabic? Privacy? Pricing? V1?</div>
       </div>
     </div>
   </div>
 
-  <div class="section-title">Follow-Up Tasks</div>
-  <div class="card">
-    <div class="card-detail" style="max-height:none">
-      <div class="card-detail-inner" style="border-top:none;padding-top:12px">
-        <div class="check-item" data-check="p1" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Sep 15-17: Follow up personally to get first completed interviews</div>
-        </div>
-        <div class="check-item" data-check="p2" onclick="toggleCheck(this)">
-          <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="check-text">Next Week: Review referrals & objections</div>
-        </div>
+  <div class="section-title">Product & Demo Prep</div>
+  <div class="card-group">
+    <div class="card-group-inner">
+      <div class="check-item" data-check="be3" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Prepare a <strong>45–60 sec demo</strong>.</div>
+      </div>
+      <div class="check-item" data-check="be4" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Prepare a <strong>backup demo/video</strong> for internet fails.</div>
+      </div>
+      <div class="check-item" data-check="be5" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Test the <strong>QR code / link</strong> on another phone.</div>
+      </div>
+      <div class="check-item" data-check="be6" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Prepare a <strong>demo account</strong> with fake user data.</div>
+      </div>
+      <div class="check-item" data-check="be7" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Test: signup → interview → feedback → history.</div>
+      </div>
+      <div class="check-item" data-check="be8" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Test Arabic text. Use Arabic voice <strong>only</strong> if reliable.</div>
       </div>
     </div>
   </div>
 
-  <button class="reset-btn" onclick="resetAll()">Reset All Progress</button>
+  <div class="section-title">Strategy & Execution</div>
+  <div class="card-group">
+    <div class="card-group-inner">
+      <div class="check-item" data-check="be12" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Find <strong>15–20 people</strong> you actually want to meet.</div>
+      </div>
+      <div class="check-item" data-check="be13" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">For each person, know: <strong>Why talk to them?</strong></div>
+      </div>
+      <div class="check-item" data-check="be14" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Roles: Kais (talk/close), Omar (demo/contact info).</div>
+      </div>
+      <div class="check-item" data-check="be15" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Practice the demo together <strong>3 times</strong>.</div>
+      </div>
+      <div class="check-item" data-check="be10" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Check pricing/free limits to be accurate.</div>
+      </div>
+      <div class="check-item" data-check="be16" onclick="toggleCheck(this)">
+        <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text">Charge phones/laptops + bring power bank.</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-danger" onclick="resetAll()">Reset All Progress</button>
 </div>
 
-<!-- Tab Bar -->
+<!-- ================= TAB BAR ================= -->
 <div class="tab-bar">
   <button class="tab active" data-page="schedule" onclick="switchTab(this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     Schedule
   </button>
   <button class="tab" data-page="people" onclick="switchTab(this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     People
   </button>
   <button class="tab" data-page="pitch" onclick="switchTab(this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
     Pitch
   </button>
   <button class="tab" data-page="checklist" onclick="switchTab(this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     Goals
   </button>
 </div>
 
 <script>
-// State
-const STATE_KEY = 'money2020_state_v2';
+const STATE_KEY = 'money2020_v3';
 let state = loadState();
 
 function defaultState() {
-  return { done: {}, checks: {}, counters: { conversations: 0, demos: 0, nextsteps: 0 }, activeTab: 'schedule' };
+  return { done: {}, checks: {}, counters: { convos: 0, demos: 0, nextsteps: 0 }, activeTab: 'schedule' };
 }
 function loadState() {
   try { const s = JSON.parse(localStorage.getItem(STATE_KEY)); return s && s.done ? s : defaultState(); } catch { return defaultState(); }
@@ -724,9 +735,9 @@ function toggleCard(header) {
   detail.classList.toggle('open');
 }
 
-// Done toggle on schedule cards
+// Schedule completion
 function toggleDone(statusEl) {
-  const card = statusEl.closest('.card');
+  const card = statusEl.closest('.schedule-card');
   const id = card.dataset.id;
   const isDone = !state.done[id];
   state.done[id] = isDone;
@@ -746,18 +757,19 @@ function toggleCheck(item) {
   saveState();
 }
 
-// Counters (tap to increment, long-press to decrement)
+// Counters (tap to increment, contextmenu to decrement)
 function setupCounters() {
-  document.querySelectorAll('.score-item').forEach(item => {
-    const numEl = item.querySelector('.num');
-    const key = numEl.id.replace('sc-', '');
-    item.style.cursor = 'pointer';
-    item.addEventListener('click', () => {
+  ['demos', 'convos', 'nextsteps'].forEach(key => {
+    const widget = document.getElementById('w-' + key);
+    const numEl = document.getElementById('sc-' + key);
+    
+    widget.addEventListener('click', () => {
       state.counters[key] = (state.counters[key] || 0) + 1;
       numEl.textContent = state.counters[key];
       saveState();
     });
-    item.addEventListener('contextmenu', (e) => {
+    
+    widget.addEventListener('contextmenu', (e) => {
       e.preventDefault();
       state.counters[key] = Math.max(0, (state.counters[key] || 0) - 1);
       numEl.textContent = state.counters[key];
@@ -766,25 +778,20 @@ function setupCounters() {
   });
 }
 
-// Progress bar
 function updateProgress() {
-  const total = document.querySelectorAll('.card[data-id]').length;
+  const total = document.querySelectorAll('.schedule-card').length;
   const done = Object.values(state.done).filter(Boolean).length;
-  const pct = Math.round((done / total) * 100);
+  const pct = total === 0 ? 0 : Math.round((done / total) * 100);
   document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressLabel').textContent = done + ' / ' + total + ' completed';
+  document.getElementById('progressLabel').textContent = done + ' of ' + total + ' schedule blocks';
 }
 
-// Restore state on load
 function restoreState() {
-  // Restore done cards
-  document.querySelectorAll('.card[data-id]').forEach(card => {
+  document.querySelectorAll('.schedule-card[data-id]').forEach(card => {
     const id = card.dataset.id;
-    if (state.done[id]) {
-      card.querySelector('.card-status').classList.add('done');
-    }
+    if (state.done[id]) card.querySelector('.status-circle').classList.add('done');
   });
-  // Restore checks
+  
   document.querySelectorAll('.check-item[data-check]').forEach(item => {
     const id = item.dataset.check;
     if (state.checks[id]) {
@@ -792,16 +799,17 @@ function restoreState() {
       item.classList.add('checked');
     }
   });
-  // Restore counters
-  Object.entries(state.counters).forEach(([key, val]) => {
+  
+  ['demos', 'convos', 'nextsteps'].forEach(key => {
     const el = document.getElementById('sc-' + key);
-    if (el) el.textContent = val;
+    if (el) el.textContent = state.counters[key] || 0;
   });
-  // Restore tab
+  
   if (state.activeTab && state.activeTab !== 'schedule') {
     const tab = document.querySelector(`.tab[data-page="${state.activeTab}"]`);
     if (tab) switchTab(tab);
   }
+  
   updateProgress();
 }
 
